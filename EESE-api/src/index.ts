@@ -8,15 +8,22 @@ import weatherRouter from './modules/weather';
 
 // Initialise Firebase Admin
 if (!admin.apps.length) {
-  const serviceAccount = process.env.FIREBASE_SERVICE_ACCOUNT_PATH
-    ? require(process.env.FIREBASE_SERVICE_ACCOUNT_PATH)
-    : undefined;
+  let credential: admin.credential.Credential;
 
-  admin.initializeApp({
-    credential: serviceAccount
-      ? admin.credential.cert(serviceAccount)
-      : admin.credential.applicationDefault(),
-  });
+  if (process.env.FIREBASE_SERVICE_ACCOUNT_JSON) {
+    // Production (non-GCP): set the full JSON content as an env variable
+    const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_JSON);
+    credential = admin.credential.cert(serviceAccount);
+  } else if (process.env.FIREBASE_SERVICE_ACCOUNT_PATH) {
+    // Local dev fallback: point to a local file path
+    const serviceAccount = require(process.env.FIREBASE_SERVICE_ACCOUNT_PATH);
+    credential = admin.credential.cert(serviceAccount);
+  } else {
+    // GCP-hosted: runtime service account is injected automatically
+    credential = admin.credential.applicationDefault();
+  }
+
+  admin.initializeApp({ credential });
 }
 
 const app = express();
