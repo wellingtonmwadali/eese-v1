@@ -430,7 +430,7 @@ const DashboardPage: NextPage = () => {
           onClick={() => { setSelectedEvent(null); setEventCurrentWeather(null); setEventForecast(null); }}
         >
           <div
-            className="bg-white rounded-2xl shadow-xl max-w-md w-full p-6"
+            className="bg-white rounded-2xl shadow-xl max-w-md w-full p-6 max-h-[85vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Risk badge */}
@@ -506,6 +506,12 @@ const DashboardPage: NextPage = () => {
                       )}
                     </div>
                   </div>
+                </div>
+              )}
+              {!eventWeatherLoading && eventForecast && eventForecast.ai_summary && (
+                <div className="mt-3 rounded-xl border border-purple-100 bg-purple-50 p-3">
+                  <p className="text-xs font-semibold text-purple-700 uppercase tracking-wide mb-1.5">AI Weather Summary</p>
+                  <p className="text-xs text-purple-900 leading-relaxed">{eventForecast.ai_summary}</p>
                 </div>
               )}
               {!eventWeatherLoading && eventForecast && eventForecast.suggestions.length > 0 && (
