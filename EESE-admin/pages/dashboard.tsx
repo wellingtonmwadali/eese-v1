@@ -295,7 +295,7 @@ const DashboardPage: NextPage = () => {
             )}
             <button
               onClick={signOut}
-              className="text-sm text-gray-500 hover:text-gray-800 transition"
+              className="text-sm text-gray-500 hover:text-gray-800 transition cursor-pointer"
             >
               Sign out
             </button>
@@ -539,14 +539,14 @@ const DashboardPage: NextPage = () => {
                     setEditingEvent(selectedEvent);
                     setEditOpen(true);
                   }}
-                  className="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium py-2 rounded-lg transition"
+                  className="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium py-2 rounded-lg transition cursor-pointer"
                 >
                   Edit
                 </button>
               )}
               <button
                 onClick={() => { setSelectedEvent(null); setEventCurrentWeather(null); setEventForecast(null); }}
-                className="flex-1 border border-gray-300 text-gray-700 text-sm font-medium py-2 rounded-lg hover:bg-gray-50 transition"
+                className="flex-1 border border-gray-300 text-gray-700 text-sm font-medium py-2 rounded-lg hover:bg-gray-50 transition cursor-pointer"
               >
                 Close
               </button>
