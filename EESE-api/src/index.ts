@@ -29,11 +29,16 @@ if (!admin.apps.length) {
 const app = express();
 const port = process.env.PORT || 3001;
 
+const allowedOrigins = new Set([
+  process.env.FRONTEND_URL
+  
+].filter(Boolean) as string[]);
+
 app.use(cors({
   origin: (origin, callback) => {
     if (!origin || /^https?:\/\/(.*\.)?localhost(:\d+)?$/.test(origin)) {
       callback(null, true);
-    } else if (origin === (process.env.FRONTEND_URL || '')) {
+    } else if (origin && allowedOrigins.has(origin)) {
       callback(null, true);
     } else {
       callback(new Error(`CORS: origin ${origin} not allowed`));
