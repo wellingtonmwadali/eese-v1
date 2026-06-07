@@ -1,6 +1,6 @@
 # AI-Enhanced Event Scheduling Engine
 
-This project is a starter for an AI-enhanced event scheduling engine with a React frontend, a Node.js (TypeScript) backend, and Firebase for database and authentication.
+---EESE is a full-stack event management platform that combines a **Next.js** admin dashboard with a **Node.js/Express** REST API. It integrates **Firebase** for authentication and data storage, **WeatherAI** for real-time and forecast weather data, and **Redis** for response caching. Every event is enriched with a weather risk assessment and an AI-generated weather summary to help planners make smarter scheduling decisions.
 
 ## Getting Started
 
