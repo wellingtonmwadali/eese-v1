@@ -97,7 +97,7 @@ const LoginPage: NextPage = () => {
                   <button
                     type="button"
                     onClick={() => setShowPassword((v) => !v)}
-                    className="absolute inset-y-0 right-0 flex items-center px-3 text-gray-400 hover:text-gray-600"
+                    className="absolute inset-y-0 right-0 flex items-center px-3 text-gray-400 hover:text-gray-600 cursor-pointer"
                     tabIndex={-1}
                     aria-label={showPassword ? 'Hide password' : 'Show password'}
                   >
@@ -109,7 +109,7 @@ const LoginPage: NextPage = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full rounded-lg bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold py-2.5 text-sm transition"
+                className="w-full rounded-lg bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold py-2.5 text-sm transition cursor-pointer"
               >
                 {loading ? 'Signing in…' : 'Sign in'}
               </button>
@@ -130,7 +130,7 @@ const LoginPage: NextPage = () => {
               type="button"
               onClick={handleGoogleLogin}
               disabled={loading}
-              className="w-full flex items-center justify-center gap-3 rounded-lg border border-gray-300 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed py-2.5 text-sm font-medium text-gray-700 transition"
+              className="w-full flex items-center justify-center gap-3 rounded-lg border border-gray-300 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed py-2.5 text-sm font-medium text-gray-700 transition cursor-pointer"
             >
               {/* Google SVG icon */}
               <svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true">
